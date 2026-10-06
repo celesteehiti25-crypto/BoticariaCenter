@@ -1,0 +1,797 @@
+/*===============================
+Variables y configuración general
+================================*/
+
+:root{
+    --bg:#02080d;
+    --bg2:#06141b;
+    --ac:#2de2d0;
+    --tx:#e6f4f4;
+    --mu:#6f8f95;
+    --bd:rgba(45,226,208,.18);
+    --ok:#3ddc97;
+    --bad:#ff6b6b;
+    --warn:#f0c040;
+    
+    color-scheme:dark;
+    box-sizing:border-box;
+    
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px)
+}
+
+/*=================================
+Reseteo general
+=================================*/
+
+*{
+    box-sizing:border-box
+}
+
+html{
+    scroll-padding-top:env(safe-area-inset-top,0px)
+}
+
+/*================================== 
+Cuerpo de la pagina 
+===================================*/
+
+body{
+    margin:0;
+    color:var(--tx);
+    
+    font:15px/1.6 "Space Grotesk",system-ui,sans-serif;
+    
+    background:
+        radial-gradient(
+            ellipse at 50% 0,
+            #0a2a33 0,
+            transparent 55%
+            
+        ),
+        
+        linear-gradient(
+            rgba(45,226,208,.035) 1px,
+            transparent 1px
+        ) 0 0/100% 48px,
+        
+        linear-gradient(
+            90deg,
+            rgba(45,226,208,.035) 1px,
+            transparent 1px
+        ) 0 0/48px 100%,
+        var(--bg)
+}
+
+/*================================== 
+Tipografias
+===================================*/
+
+.o{
+    font-family:Orbitron,system-ui,sans-serif
+}
+
+.sf{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-style:italic
+}
+
+/*====================================
+Header 
+=====================================*/
+
+header{
+    position:sticky;
+    top:env(safe-area-inset-top,0px);
+    z-index:5;
+    
+    display:flex;
+    align-items:center;
+    gap:14px;
+    
+    padding:12px 28px;
+    
+    background:rgba(2,8,13,.8);
+    backdrop-filter:blur(10px);
+    
+    border-bottom:1px solid var(--bd)
+}
+
+/*======================================
+Logotipo
+=======================================*/
+
+.lg{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    
+    margin-right:auto;
+    
+    color:var(--tx);
+    text-decoration:none
+}
+
+.lg i{
+    width:34px;
+    height:34px;
+    
+    border:1px solid var(--ac);
+    border-radius:6px;
+    
+    display:grid;
+    place-items:center;
+    
+    color:var(--ac)
+}
+
+.lg b{
+    display:block;
+    
+    font:700 13px Orbitron,sans-serif;
+    letter-spacing:.2em
+}
+
+.lg small{
+    font-size:8px;
+    letter-spacing:.3em;
+    color:var(--ac)
+}
+
+/*======================================
+Navegacion
+=======================================*/
+
+nav a{
+    color:var(--mu);
+    text-decoration:none;
+    
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    
+    margin-left:18px;
+    padding:4px 0
+}
+
+nav a:hover,
+nav a.on{
+    color:var(--ac);
+    border-bottom:1px solid var(--ac)
+}
+
+/*========================================
+Estado del sistema
+========================================*/
+
+.st{
+    font-size:9px;
+    letter-spacing:.2em;
+    color:var(--tx)
+}
+
+.st:before{
+    content:"";
+    
+    display:inline-block;
+    
+    width:6px;
+    height:6px;
+    
+    border-radius:50%;
+    
+    background:var(--ac);
+    
+    margin-right:6px;
+    
+    box-shadow:0 0 8px var(--ac)
+}
+
+/*=======================================
+Responsive - header
+========================================*/
+
+@media(max-width:640px){
+    
+    .st{
+        display:none
+    }
+    
+    header{
+        padding:10px 14px
+    }
+    
+    nav a{
+        margin-left:10px}
+    }
+
+/*====================================
+Contenido principal
+=====================================*/
+
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 20px 60px
+}
+
+/*====================================
+Hero/Portada
+=====================================*/
+
+.hero{
+    text-align:center;padding:56px 0 34px
+}
+
+/*Etiqueta decorativa*/
+
+.bd{
+    display:inline-block;
+    
+    border:1px solid var(--bd);
+    
+    background:rgba(45,226,208,.06);
+    
+    color:var(--ac);
+    
+    font-size:9px;
+    letter-spacing:.25em;
+    
+    padding:5px 14px;
+    border-radius:4px
+}
+
+/*Subtitulo*/
+
+.hero .sf{
+    color:var(--ac);
+    
+    margin:16px 0 0;
+    
+    font-size:15px
+}
+
+/*Titulo principal*/
+
+h1.o{
+    margin:6px 0 14px;
+    
+    font-size:clamp(2.2rem,8.5vw,5.6rem);
+    font-weight:900;
+    line-height:1.05;
+    
+    text-shadow:0 0 28px rgba(45,226,208,.35)
+}
+
+/*Texto con contorno*/
+
+h1 .ol{
+    color:transparent;
+    
+    -webkit-text-stroke:1.5px var(--ac);
+    
+    text-shadow:none
+}
+
+/*Descripcion del hero*/
+
+.hero p{
+    max-width:560px;
+    
+    margin:0 auto;
+    
+    color:var(--mu)
+}
+
+/*===================================
+Buscador
+=====================================*/
+
+.sr{
+    max-width:560px;
+    
+    margin:28px auto 0;
+    
+    display:flex;
+    align-items:center;
+    
+    gap:10px;
+    
+    border:1px solid var(--bd);
+    
+    background:rgba(6,20,27,.8);
+    
+    padding:10px 16px;
+    
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 70%,
+        96% 100%,
+        0 100%
+    );
+}
+
+.sr input{
+    flex:1;
+    
+    background:none;
+    
+    border:0;
+    outline:0;
+    
+    color:var(--tx);
+    
+    font:inherit;
+    
+    min-width:0
+}
+
+.sr span{
+    font-size:9px;
+    letter-spacing:.15em;
+    
+    color:var(--mu);
+    
+    white-space:nowrap
+}
+
+/*===================================
+Encabezados de seccion
+=====================================*/
+
+.sh{
+    display:flex;
+    flex-wrap:wrap;
+    
+    justify-content:space-between;
+    align-items:end;
+    
+    gap:12px;
+    margin:46px 0 18px
+}
+
+.sh small{
+    display:block;
+    
+    font-size:9px;
+    letter-spacing:.25em;
+    
+    color:var(--ac)
+}
+
+.sh h2{
+    margin:4px 0 0;
+    
+    font:500 clamp(1.1rem,3vw,1.5rem) Orbitron,sans-serif;
+    
+    letter-spacing:.12em;
+    
+    text-transform:uppercase
+}
+
+/*===================================
+Pestañas
+=====================================*/
+
+.tabs button{
+    background:none;
+    
+    border:1px solid var(--bd);
+    
+    color:var(--mu);
+    
+    font:inherit;
+    font-size:9px;
+    
+    letter-spacing:.15em;
+    
+    text-transform:uppercase;
+    
+    padding:6px 12px;
+    
+    cursor:pointer
+}
+
+.tabs button.on{
+    border-color:var(--ac);
+    
+    color:var(--ac);
+    
+    background:rgba(45,226,208,.1)
+}
+
+/*===================================
+Grid de tarjetas
+=====================================*/
+
+.grid{
+    display:grid;
+    
+    grid-template-columns:
+        repeat(auto-fill,minmax(220px,1fr));
+    
+    gap:16px
+}
+
+/*===================================
+Tarjetas
+=====================================*/
+
+.cd{
+    position:relative;
+    
+    display:block;
+    
+    color:var(--tx);
+    
+    text-decoration:none;
+    
+    border:1px solid var(--bd);
+    
+    background:rgba(6,20,27,.7);
+    
+    transition:.25s
+}
+
+/*Linea decorativa superior*/
+
+.cd:after{
+    content:"";
+    
+    position:absolute;
+    
+    top:-1px;
+    right:12px;
+    
+    width:28px;
+    height:3px;
+    
+    background:var(--ac)
+}
+
+/*Efecto hover*/
+
+.cd:hover{
+    border-color:var(--ac);
+    
+    transform:translateY(-4px);
+    
+    box-shadow:0 0 26px rgba(45,226,208,.15)
+}
+
+/*=======================================
+Imagenes de las tarjetas
+=======================================*/
+
+.im{
+    position:relative;
+    
+    aspect-ratio:4/3;
+    
+    overflow:hidden;
+    
+    background:#030a0f
+}
+
+.im svg{
+    width:100%;
+    height:100%;
+    
+    display:block;
+}
+
+.im:after{
+    content:"";
+    
+    position:absolute;
+    
+    inset:auto 0 0;
+    
+    height:40%;
+    
+    background:
+        linear-gradient(
+            transparent,
+            rgba(6,20,27,.95)
+        )
+}
+
+/*Imagen*/
+
+.ph{
+    height:100%;
+    
+    display:grid;
+    place-items:center;
+    
+    font-size:3.4rem;
+    
+    background:
+        radial-gradient(
+            circle,
+            #0d3a42,
+            #030a0f 70%
+        )
+}
+
+/*=====================================
+Informacion de tarjetas
+=====================================*/
+
+.cdn{
+    position:absolute;
+    
+    top:8px;
+    left:10px;
+    
+    font-size:8px;
+    letter-spacing:.2em;
+    
+    color:var(--mu);
+    
+    z-index:1
+}
+
+/*Etiquetas*/
+
+.tg{
+    position:absolute;
+    
+    top:8px;
+    right:8px;
+    
+    z-index:1;
+    
+    font-size:8px;
+    letter-spacing:.15em;
+    
+    padding:3px 8px;
+    
+    border:1px solid;
+    border-radius:3px;
+    
+    background:rgba(2,8,13,.7);
+    
+    text-transform:uppercase
+}
+
+.tg.ok{
+    color:var(--ok);
+    border-color:var(--ok)
+}
+
+.tg.bad{
+    color:var(--bad);
+    border-color:var(--bad)
+}
+
+.tg.ac{
+    color:var(--ac);
+    border-color:var(--ac)
+}
+
+/*=====================================
+Contenido de las tarjetas
+=====================================*/
+
+.cb{
+    padding:14px 16px 16px
+}
+
+.cb .c{
+    font-size:8px;
+    
+    letter-spacing:.25em;
+    
+    color:var(--ac);
+    
+    text-transform:uppercase
+}
+
+.cb h3{
+    margin:6px 0 0;
+    
+    font:500 1.1rem Orbitron,sans-serif
+}
+
+.cb .sf{
+    color:var(--mu);
+    
+    margin:2px 0 12px
+}
+
+.cb .l{
+    font-size:8px;
+    
+    letter-spacing:.2em;
+    
+    color:var(--mu);
+    
+    text-transform:uppercase
+}
+
+.cb p{
+    margin:2px 0 12px;
+    
+    font-size:13px
+}
+
+/*Enlace de tarjetas*/
+
+.cb .go{
+    border-top:1px solid var(--bd);
+    
+    padding-top:10px;
+    
+    font-size:8px;
+    
+    letter-spacing:.2em;
+    
+    color:var(--ac);
+    
+    display:flex;
+    
+    justify-content:space-between;
+    
+    text-transform:uppercase
+}
+
+/*=====================================
+Panel informativo
+=====================================*/
+
+.pn{
+    border:1px solid var(--bd);
+    
+    background:rgba(6,20,27,.7);
+    
+    padding:18px 22px;
+    
+    margin:14px 0
+}
+
+.pn h3{
+    margin:0 0 6px;
+    
+    font:500 .85rem Orbitron,sans-serif;
+    
+    letter-spacing:.15em;
+    
+    color:var(--ac);
+    
+    text-transform:uppercase
+}
+
+.pn p{
+    margin:0;
+    
+    color:#b9d0d2
+}
+
+/*======================================
+Creditos/referencias
+======================================*/
+
+.cr{
+    font-size:10px;
+    
+    letter-spacing:.15em;
+    
+    color:var(--mu);
+    
+    text-transform:uppercase;
+    
+    margin:26px 0 10px
+}
+
+.cr a{
+    color:var(--ac);
+    
+    text-decoration:none
+}
+
+/*======================================
+Ficha de información
+=======================================*/
+
+.fi{
+    display:grid;
+    
+    grid-template-columns:minmax(0,340px) 1fr;
+    
+    gap:22px
+}
+
+.fi .im{
+    aspect-ratio:1;
+    
+    border:1px solid var(--bd)
+}
+
+/*====================================
+Responsive - ficha
+====================================*/
+
+@media(max-width:760px){
+    
+    .fi{
+        grid-template-columns:1fr
+    }
+}
+
+/*====================================
+Listas de definiciones
+====================================*/
+
+dt{
+    font-size:8px;
+    
+    letter-spacing:.25em;
+    
+    color:var(--ac);
+    
+    text-transform:uppercase;
+    
+    margin-top:14px
+}
+
+dd{
+    margin:2px 0 0;
+    
+    color:#cfe3e4
+}
+
+/*====================================
+Etiquetas
+====================================*/
+
+.pill{
+    display:inline-block;
+    
+    border:1px solid var(--bd);
+    
+    color:var(--ac);
+    
+    font-size:9px;
+    
+    letter-spacing:.15em;
+    
+    padding:3px 10px;
+    
+    margin:4px 6px 0 0;
+    
+    text-decoration:none;
+    
+    text-transform:uppercase
+}
+
+/*====================================
+Bibliografia
+====================================*/
+
+.bib{
+    font-size:12px;
+    
+    color:var(--mu);
+    
+    margin-top:10px
+}
+
+/*====================================
+Footer
+====================================*/
+
+footer{
+    text-align:center;
+    
+    color:var(--mu);
+    
+    font-size:10px;
+    
+    letter-spacing:.15em;
+    
+    padding:26px;
+    
+    border-top:1px solid var(--bd)
+}
