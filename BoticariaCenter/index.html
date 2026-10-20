@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    
+    <title>BoticariaCenter · Archivo Botánico</title>
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    
+    <!--Hoja de estilos-->
+    <link rel="stylesheet" href="styles.css?v=plant-images-1">
+</head>
+
+<body>
+    
+    <!--Encabezado y navegación-->
+    <header class="site-header">
+        <!--Logo-->
+
+        <a
+            class="lg"
+            href="index.html"
+            aria-label="BoticariaCenter, volver al inicio "
+            >
+        <span class="logo-container">
+            <img
+                class="logo-img"
+                src="img/logo.png"
+                alt="Logo de BoticariaCenter"
+                width="48"
+                height="48"
+            >
+        </span>
+        <span class="brand-title"><b>BOTICARIA CENTER</b><small>HERBARIO DIGITAL</small></span>
+
+    
+    </a>
+
+    <!--Menu de navegación-->
+    <nav id="nv" aria-label="Navegacion principal">
+        <a href="#/" data-key="inicio">Inicio</a>
+        <a href="#/tipos" data-key="tipos">Tipos</a>
+        <a href="#/categorias" data-key="categorias">Categorías</a>
+        <a href="#/admin" data-key="admin" class="admin-nav-link">Administrar</a>
+    </nav>
+
+    <!--Estado del sistema -->
+    <span class="st">SISTEMA EN LINEA</span>
+            
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="app"></main>
+
+    <!-- Pie de página -->
+    <footer id="site-footer" class="site-footer">
+        <p>BOTICARIACENTER · CENTRO DE CONOCIMIENTO BOTÁNICO</p>
+        <small>Información educativa; no sustituye el consejo médico.</small>
+    </footer>
+
+    <!--Archivos de script-->
+    <script src="data.js"></script>
+    <script src="admin.js?v=plant-images-1"></script>
+    <script src="app.js?v=plant-images-1"></script>
+
+</body>
+</html>
